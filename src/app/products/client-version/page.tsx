@@ -1,5 +1,6 @@
 "use client";
 
+import ProductCard from "@/components/ProductCard/ProductCard";
 import { Product } from "@/types";
 import { useEffect, useState } from "react";
 
@@ -23,13 +24,8 @@ const ProductsClientVersion = () => {
     <div>
       <h2>Products list</h2>
       <ul>
-        {products.map((p) => (
-          <li key={"product" + p.id}>
-            <h3>{p.title}</h3>
-            <img src={p.images[0]} alt="product" width="320" />
-            <span>{p.price}$</span>
-            {/* <Link to={`/products/${p.id}`}>To product</Link> */}
-          </li>
+        {products.map((product: Product) => (
+          <ProductCard product={product} key={product.id} />
         ))}
       </ul>
     </div>
