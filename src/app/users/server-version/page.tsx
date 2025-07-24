@@ -1,3 +1,4 @@
+import UserCard from "@/components/UserCard/UserCard";
 import { User } from "@/types";
 
 // by default - server component
@@ -13,9 +14,12 @@ const UsersServerVersion = async () => {
 
   return (
     <div>
-      {users.map((user: User) => (
-        <li key={user.id}>{user.name}</li>
-      ))}
+      <h2>Users list</h2>
+      <ul>
+        {users.map((user: User) => (
+          <UserCard key={user.id} user={user} />
+        ))}
+      </ul>
     </div>
   );
 };
