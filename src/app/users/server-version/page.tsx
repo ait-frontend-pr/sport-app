@@ -1,5 +1,6 @@
-import UserCard from "@/components/UserCard/UserCard";
+
 import { User } from "@/types";
+import Link from "next/link";
 
 // by default - server component
 const UsersServerVersion = async () => {
@@ -14,12 +15,12 @@ const UsersServerVersion = async () => {
 
   return (
     <div>
-      <h2>Users list</h2>
-      <ul>
-        {users.map((user: User) => (
-          <UserCard key={user.id} user={user} />
-        ))}
-      </ul>
+      {users.map((user: User) => (
+        <li key={user.id}>
+          {user.name}
+          <Link href={`/users/server-version/${user.id}`}>To user</Link>
+        </li>
+      ))}
     </div>
   );
 };
